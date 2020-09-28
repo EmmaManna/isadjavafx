@@ -30,12 +30,12 @@ public class KriptoPrezioa extends Application {
             System.out.println(sakatuta);
             Txanpona txanpona = new Txanpona();
             txanpona = txanpona.irakurriURLtik(sakatuta);
-            label.setText(String.valueOf(txanpona.price));
+            label.setText("1 "+ sakatuta + " = " +String.valueOf(txanpona.price));
         });
 
         VBox vbox = new VBox(label,comboBox);
 
-        Scene scene = new Scene(vbox, 320, 160);
+        Scene scene = new Scene(vbox, 220, 160);
         primaryStage.initStyle(StageStyle.UTILITY);
         primaryStage.setScene(scene);
         primaryStage.show();
