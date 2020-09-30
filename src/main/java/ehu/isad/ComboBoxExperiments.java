@@ -33,7 +33,7 @@ public class ComboBoxExperiments extends Application  {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setTitle("ComboBox Experiment Image");
+        primaryStage.setTitle("ComboBox Experiment Images");
 
         comboBilduma = new ComboBox();
         List<String> bildumak = List.of("abereak", "landareak", "frutak");
