@@ -84,16 +84,17 @@ public class ComboBoxExperiments extends Application  {
         comboBilduma.setOnAction(e -> {
             String sakatuta = (String) comboBilduma.getValue();
             System.out.println(sakatuta);
-            List<Argazki> bildumarenArgazkiak = bildumaMap.get(sakatuta);
-
+            argazkiList.clear();
+            argazkiList.addAll(bildumaMap.get(sakatuta));
             listViewOfArgazki.getSelectionModel().selectFirst();
+
         });
 
 
 
         VBox vbox = new VBox(comboBilduma, listViewOfArgazki, imageView);
-        vbox.setAlignment(Pos.BASELINE_CENTER);
-        vbox.setPadding(new Insets(10,0,0,0));
+        //vbox.setAlignment(Pos.BASELINE_CENTER);
+        //vbox.setPadding(new Insets(10,0,0,0));
 
         Scene scene = new Scene(vbox, 320, 260);
         primaryStage.setScene(scene);
