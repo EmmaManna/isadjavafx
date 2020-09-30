@@ -1,10 +1,18 @@
 package ehu.isad;
 
 import javafx.application.Application;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.layout.HBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.InputStream;
 
 
 public class ComboBoxExperiments extends Application  {
@@ -12,23 +20,19 @@ public class ComboBoxExperiments extends Application  {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setTitle("ComboBox Experiment 1");
+        primaryStage.setTitle("ComboBox Experiment Image");
 
-        ComboBox comboBox = new ComboBox();
+        InputStream is = getClass().getResourceAsStream("/pumpkin.png");
+        BufferedImage reader = ImageIO.read(is);
+        Image image = SwingFXUtils.toFXImage(reader,null);
+        ImageView imageView = new ImageView(image);
 
-        comboBox.getItems().add("Choice 1");
-        comboBox.getItems().add("Choice 2");
-        comboBox.getItems().add("Choice 3");
 
-        comboBox.setEditable(true);
+        VBox vbox = new VBox(imageView);
+        vbox.setAlignment(Pos.BASELINE_CENTER);
+        vbox.setPadding(new Insets(10,0,0,0));
 
-        comboBox.setOnAction(e -> {
-            System.out.println( comboBox.getValue());
-        });
-
-        HBox hbox = new HBox(comboBox);
-
-        Scene scene = new Scene(hbox, 200, 120);
+        Scene scene = new Scene(vbox, 320, 260);
         primaryStage.setScene(scene);
         primaryStage.show();
 
